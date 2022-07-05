@@ -23,6 +23,8 @@ app.get('/', (req,res) =>{
     res.status(200).json({msg: 'Working! Welcome to our API! :)'})
 })
 
+//Aqui é onde as rotas estão sendo importadas.
+
 //create user
 const createUserRoute = require('./routes/createUser')
 app.use('/createuser', createUserRoute)
