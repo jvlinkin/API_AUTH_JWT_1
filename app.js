@@ -20,7 +20,7 @@ const User = require('./models/CreateUser')
 
 
 app.get('/', (req,res) =>{
-    res.status(200).json({msg: 'Working! Welcome to our API! :)'})
+    res.status(200).json({msg: 'Working! Welcome to our API! UHUUUUUUUUUUUUUUUUUL :)'})
 })
 
 //Aqui é onde as rotas estão sendo importadas.
