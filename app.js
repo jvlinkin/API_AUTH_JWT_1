@@ -13,11 +13,7 @@ app.use(express.json())
 const db_user = process.env.DB_USER
 const db_pass = process.env.DB_PASSWORD
 
-mongoose.connect(`mongodb+srv://${db_user}:${db_pass}@cluster0.zdhzmqt.mongodb.net/?retryWrites=true&w=majority`).then(
-    console.log('Conectado no BD.')
-).catch((error) =>{
-    console.log('Ocorreu um erro ao se conectar com o MongoDB:',error)
-})
+
 
 //Models
 const User = require('./models/CreateUser')
@@ -33,9 +29,6 @@ app.get('/', (req,res) =>{
 const createUserRoute = require('./routes/createUser')
 app.use('/createuser', createUserRoute)
 
-
-
-
 //login
 const loginRoute = require('./routes/login')
 app.use('/login', loginRoute)
@@ -44,4 +37,9 @@ app.use('/login', loginRoute)
 const showUsers = require('./routes/showUsers')
 app.use('/showusers', showUsers)
 
+mongoose.connect(`mongodb+srv://${db_user}:${db_pass}@cluster0.zdhzmqt.mongodb.net/?retryWrites=true&w=majority`).then(
+    console.log('Conectado no BD.')
+).catch((error) =>{
+    console.log('Ocorreu um erro ao se conectar com o MongoDB:',error)
+})
 app.listen(PORT, () => console.log(`Server is listening on port ${PORT}...`));
