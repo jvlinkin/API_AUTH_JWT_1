@@ -2,6 +2,7 @@ require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
 const app = express()
+const PORT = process.env.PORT || 8081
 
 //Json as response:
 app.use(express.json())
@@ -40,6 +41,6 @@ app.use('/login', loginRoute)
 const showUsers = require('./routes/showUsers')
 app.use('/showusers', showUsers)
 
-app.listen(8081, () =>{
+app.listen(PORT, () =>{
     console.log('Listening on 8081.')
 })
